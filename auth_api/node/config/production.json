@@ -1,0 +1,12 @@
+{
+  "port": 8000,
+  "database": {
+    "user": "secret",
+    "password": "jOdznoyH6swQB9sTGdLUeeSrtejWkcw",
+    "host": "http://sre-bootcamp-selection-challenge.cabf3yhjqvmq.us-east-1.rds.amazonaws.com/",
+    "port": 3306,
+    "database": "bootcamp_tht"
+  },
+  "environment": "production",
+  "jwtSecret": "my2w7wjd7yXF64FIADfJxNs1oupTGAuW"
+}

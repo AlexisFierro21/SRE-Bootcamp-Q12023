@@ -1,10 +1,15 @@
-import { protectFunction } from '../services/protected';
+import { protectFunction } from "../services/protected";
 
-export const protect = (req, res, next) => {
-  let authorization = req.headers.authorization;
-  let response = {
-    "data": protectFunction(authorization)
-  };
-  res.send(response);
-  next();
-}
+export const protect = async (req, res) => {
+  try {
+    let authorization = req.headers.authorization;
+    let response = {
+      data: await protectFunction(authorization),
+    };
+    res.send(response);
+  } catch (err) {
+    res.status(err.statusCode || 500).send({
+      message: err.message || "Uknown error",
+    });
+  }
+};

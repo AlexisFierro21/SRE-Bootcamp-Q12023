@@ -1,12 +1,11 @@
-import { loginFunction } from '../services/login';
+import { loginFunction } from "../services/login";
 
-export const login = (req, res, next) => {
+export const login = async (req, res) => {
   let username = req.body.username;
   let password = req.body.password;
- 
+
   let response = {
-    "data": loginFunction(username, password)
+    data: await loginFunction(username, password),
   };
   res.send(response);
-  next();
-}
+};

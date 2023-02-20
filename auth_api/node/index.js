@@ -1,8 +1,10 @@
-import Config from 'config';
-import app from './server';
+import Config from "config";
+import app from "./server";
+import { init as dbInit } from "./db";
 
 let config = Config;
 
- app.listen(config.port, function() {
-  console.log('listening at',config.port);
+dbInit(config.database);
+app.listen(config.port, function () {
+  console.log("listening at", config.port);
 });
